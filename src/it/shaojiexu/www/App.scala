@@ -14,6 +14,25 @@ object App {
     var complex = new Complex(1.1,2.2);
     println(complex.toString())
     println(addInt(1,2))
+    
+    val tupleA = (1,3)
+    println(tupleA._1 + tupleA._2)
+    
+    var myArray = new Array[Int](3)
+    myArray(0) = 1 
+    myArray(1) = 2 
+    myArray(2) = 3;
+    
+    var myList = Array("a", "b", "c")
+    
+    for( x <- myArray) {
+      println(x);
+    }
+    
+     for( x <- myList) {
+      println(x);
+    }
+    
   }
   
   def italianDateFormate() : Unit ={
