@@ -20,7 +20,7 @@ public class MyQuickSort {
         int i = lowerIndex;
         int j = higherIndex;
         // calculate pivot number, I am taking pivot as middle index number
-        int pivot = array[lowerIndex+(higherIndex-lowerIndex)/2];
+        int pivot = array[(higherIndex+lowerIndex)/2];
         // Divide into two arrays
         while (i <= j) {
             /**

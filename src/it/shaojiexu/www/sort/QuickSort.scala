@@ -4,7 +4,7 @@ object QuickSort {
   
   def main(args:Array[String]) {
     
-    var a1 = Array(1,3,2,6,5,7)
+    var a1 = Array(1,3,2,6,5,7,10,9,0,-1)
     
     for( x <- a1) {
       print(x)
@@ -28,9 +28,9 @@ object QuickSort {
       val t = xs(i); xs(i) = xs(j); xs(j) = t;
     }
     
-    def sort1(l: Int, r:Int) {
-      val pivot = xs((l + r) / 2)
-      var i = l; var j = r
+    def sort1(lowerIndex: Int, higherIndex:Int) {
+      val pivot = xs((lowerIndex + higherIndex) / 2)
+      var i = lowerIndex; var j = higherIndex
       while(i <= j) {
         while (xs(i) < pivot) i += 1
         while (xs(j) > pivot) j -= 1
@@ -40,14 +40,12 @@ object QuickSort {
           j -= 1
         }
       }
-      if(l < j) sort1(l, j)
-      if(i < r) sort1(i, r)
+      if(lowerIndex < j) sort1(lowerIndex, j)
+      if(i < higherIndex) sort1(i, higherIndex)
     }
     
     sort1(0, xs.length -1)
     
   }
-  
-  
   
 }
