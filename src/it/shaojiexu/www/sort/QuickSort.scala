@@ -11,7 +11,7 @@ object QuickSort {
       print(" ")
     }
     
-    sort(a1)
+    a1 = functionalStyleSort(a1)
     
     println("")
     
@@ -26,6 +26,7 @@ object QuickSort {
     
     def swap(i: Int, j:Int) {
       val t = xs(i); xs(i) = xs(j); xs(j) = t;
+      ()
     }
     
     def sort1(lowerIndex: Int, higherIndex:Int) {
@@ -45,6 +46,18 @@ object QuickSort {
     }
     
     sort1(0, xs.length -1)
+    
+  }
+  
+  def functionalStyleSort(xs: Array[Int]) : Array[Int] = {
+    
+    if(xs.length <= 1) xs
+    else {
+      val pivot = xs(xs.length/2)
+    	Array.concat(functionalStyleSort(xs.filter(pivot >)), 
+    	                                 xs.filter(pivot ==), 
+    	             functionalStyleSort(xs.filter(pivot <)))
+    }
     
   }
   

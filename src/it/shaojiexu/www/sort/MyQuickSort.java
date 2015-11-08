@@ -60,9 +60,21 @@ public class MyQuickSort {
         MyQuickSort sorter = new MyQuickSort();
         int[] input = {24,2,45,20,56,75,2,56,99,53,12};
         sorter.sort(input);
+        
         for(int i:input){
             System.out.print(i);
             System.out.print(" ");
         }
+        
+        System.out.println(" ");
+        System.out.println(sorter.gcd(4,21));
+        
+        
+    }
+    
+    public int gcd (int i, int j) {
+    	
+    	if(j == 0) return i;
+    	else return gcd(j, i%j);
     }
 }
