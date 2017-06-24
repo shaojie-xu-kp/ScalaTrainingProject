@@ -44,7 +44,20 @@ object SumFunction {
     println(curryingSum(x => x)(1,5))
     println(sumSquares(1,3))
     println(sumPowerOfTwo(1,3))
-    
+
+    val addOne = (x : Int) => x + 1
+    println(addOne(1))
+
+    val list: List[Any] = List(
+      "a string",
+      732,  // an integer
+      'c',  // a character
+      true, // a boolean value
+      () => "an anonymous function returning a string"
+    )
+
+    list.foreach(x => println(x));
+
   }
 
 }

@@ -32,7 +32,24 @@ object App {
      for( x <- myList) {
       println(x);
     }
-    
+
+    val car = new Car(100,1)
+    car turn "left"
+
+    var numbers = List(1,2,3,4,5,6)
+    println(total(numbers))
+    println(totalFuntional((numbers)))
+    // sum up all the numbers
+    println(totalSelectedValues(numbers, { e => true}))
+    // sum up all the even numbers
+    println(totalSelectedValues(numbers, { e => e % 2 == 0}))
+    // sum up all the odd number
+    println(totalSelectedValues(numbers, { e => !(e % 2 == 0)}))
+    println(totalSelectedValues(numbers, {_ % 2 != 0}))
+
+    // sum up any number bigger than 4
+    println(totalSelectedValues(numbers, { _ > 4}))
+
   }
   
   def italianDateFormate() : Unit ={
@@ -44,5 +61,26 @@ object App {
   def addInt(a: Int, b: Int ) : Int = {
     return a + b;
   }
-  
+
+  def total( numbers: List[Int])  = {
+    var sum = 0
+    numbers.foreach{number => sum += number}
+    sum
+  }
+
+  def totalFuntional( numbers: List[Int])  = {
+    numbers.foldLeft(0){
+      (carryOver, element) => carryOver + element
+    }
+  }
+
+  def totalSelectedValues(numbers : List[Int], selector : Int => Boolean) : Int = {
+    var sum = 0;
+    numbers.foreach( element => {
+      if(selector(element)) sum += element
+    })
+    sum
+  }
+
+
 }
