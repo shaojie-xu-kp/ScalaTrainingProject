@@ -32,5 +32,6 @@ object Function1 extends App{
   apply1(function1Impl.f2, dog)
 //  apply2(function1Impl.f1, animal)
   apply2(function1Impl.f2, animal)
+  var ints = Array(1,2,3)
 
 }
