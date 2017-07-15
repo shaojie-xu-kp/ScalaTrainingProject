@@ -14,10 +14,41 @@ object CovarianceTest extends App {
   val animals : List[Animal] = cats:::dogs
 
   printAnimalNames(animals)
+
+
+  val animalFunction = new AnimalFunction() {
+
+    override def f1(d: Dog): Animal = new Animal {
+      override def name: String = "animal"
+    }
+
+    override def f2(a: Animal): Dog =  Dog("tom")
+  }
+
+  def apply1(f: Dog => Animal, d : Dog) = f(d)
+  def apply2(f: Animal => Dog, a : Animal) = f(a)
+
+  val dog = new Dog("dog")
+  val animal = new Cat("cat")
+
+  apply1(animalFunction.f1, dog)
+  apply1(animalFunction.f2, dog)
+  //  apply2(function1Impl.f1, animal)
+  apply2(animalFunction.f2, animal)
+
 }
 
-abstract class Animal {
+trait Animal {
   def name: String
 }
-case class Cat(name: String) extends Animal
-case class Dog(name: String) extends Animal
+case class Cat(val name: String) extends Animal
+case class Dog(val name: String) extends Animal
+
+
+trait AnimalFunction {
+
+  def f1(d : Dog) : Animal
+  def f2(a : Animal) : Dog
+
+}
+
