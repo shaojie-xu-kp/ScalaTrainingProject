@@ -58,6 +58,22 @@ object SumFunction {
 
     list.foreach(x => println(x));
 
+    val af1 = (x : Int) => x + x
+    val af2 = new Function1[Int, Int] {
+      override def apply(x: Int): Int = x + x
+    }
+
+    println(af1(6))
+    println(af2(6))
+
+    val listInt : List[Int] = List(1,2,3)
+    listInt.foreach(println)
+    val listAnyVal : List[AnyVal] = listInt.::('a')
+    listAnyVal.foreach(println)
+    val listAny : List[Any] = listAnyVal.::("string")
+    listAny.foreach(println)
+
+
   }
 
 }
