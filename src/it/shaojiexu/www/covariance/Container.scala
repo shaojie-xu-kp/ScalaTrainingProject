@@ -27,6 +27,10 @@ object Nil extends Container[Nothing] {
 
 object ContainerTest extends App {
 
+  // this function f : (Container[Dog], Cat) => Container[Animal]
+  // you can see that the return type is Container[Animal], not Container[Dog] neither Container[Cat]
+  def f(xs : Container[Dog], x : Cat) : Container[Animal] = xs prepend x
+
   def nth[T] (n : Int, container: Container[T]) : T = {
     if(container.isEmpty) throw new IndexOutOfBoundsException
     else if (n == 0) container.head

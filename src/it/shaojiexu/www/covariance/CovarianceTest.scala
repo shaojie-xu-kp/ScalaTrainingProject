@@ -11,9 +11,9 @@ object CovarianceTest extends App {
 
   val cats: List[Cat] = List(Cat("Whiskers"), Cat("Tom"))
   val dogs: List[Dog] = List(Dog("Fido"), Dog("Rex"))
+  val animals : List[Animal] = cats:::dogs
 
-  printAnimalNames(cats)
-  printAnimalNames(dogs)
+  printAnimalNames(animals)
 }
 
 abstract class Animal {
